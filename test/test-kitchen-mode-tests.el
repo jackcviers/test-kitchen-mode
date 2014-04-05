@@ -18,7 +18,15 @@
 
 
 ;;; Code:
-
+(require 'cl)
+(add-to-list 'load-path (expand-file-name "../"))
 (require 'ert)
+(require 'el-mock nil t)
+(require 'ert-expectations)
+(require 'test-kitchen-mode)
 
-
+(expectations
+ (desc "success")
+ (expect 10
+         (+ 4 6))
+ )
