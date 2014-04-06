@@ -22,7 +22,7 @@
 (require 'compile)
 (require 'cl-lib)
 
-(define-prefix-command 'test-kitchen-mode-verifilable keymap)
+(define-prefix-command 'test-kitchen-mode-verifilable-keymap)
 (define-prefix-command 'test-kitchen-mode-keymap)
 (defgroup test-kitchen-mode nil
   "TestKitchen minor mode."

@@ -25,6 +25,20 @@
 (require 'ert-expectations)
 (require 'test-kitchen-mode)
 
+(defun test-kitchen-mode-tests-beforeall ()
+  (let ((current-dir default-directory))
+    (if (file-exists-p(concat(current-dir "./fixtures/test-kitchen-mode-test-run")))
+        (delete-directory (concat current-dir "./fixtures/test-kitchen-mode-test-run") t)
+      nil)
+    (copy-directory (concat current-dir "./fixtures/test-kitchen-mode") (concat current-dir "./fixtures/test-kitchen-mode-test-run"))
+    (shell-command-to-string concat("cd" (concat current-dir "./fixtures/test-kitchen-mode-test-run") ";bundle install; bundle exec berks install;"))))
+
+(defun test-kitchen-mode-tests-afterall ()
+  (let ((current-dir default-directory))
+    (if (file-exists-p(concat(current-dir "./fixtures/test-kitchen-mode-test-run")))
+        (delete-directory (concat current-dir "./fixtures/test-kitchen-mode-test-run") t)
+      nil)))
+
 (expectations
  (desc "success")
  (expect 10
