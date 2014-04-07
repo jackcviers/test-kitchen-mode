@@ -144,6 +144,8 @@
         (test-kitchen-return-to-char-and-return-string cursor-position suite-name)
       nil)))
 
+
+;;;autoload
 (defun test-kitchen-dired-open-suite-at-point ()
   "Opens the directory containing the suite name at point, if it is a suite-name"
   (interactive)
@@ -162,9 +164,3 @@
 
 
 (provide 'test-kitchen-mode)
-
-
-(let ((zebra 'stripes)
-      (tiger 'fierce))
-  (message "One kind of animal has %s and another is %s."
-           zebra tiger))
